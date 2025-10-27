@@ -4,26 +4,26 @@ class CustomNavbar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         nav {
-          background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-          padding: 1rem 2rem;
+          background: white;
+          padding: 1.5rem 2rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           position: sticky;
           top: 0;
-          z-index: 100;
+          z-index: 1000;
         }
         .logo {
-          color: white;
+          color: #4f46e5;
           font-weight: bold;
           font-size: 1.5rem;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
         }
         .logo-icon {
-          color: #fef3c7;
+          margin-right: 0.5rem;
+          color: #4f46e5;
         }
         ul {
           display: flex;
@@ -33,52 +33,69 @@ class CustomNavbar extends HTMLElement {
           padding: 0;
         }
         a {
-          color: white;
+          color: #4b5563;
           text-decoration: none;
           font-weight: 500;
-          transition: all 0.3s;
-          padding: 0.5rem 1rem;
-          border-radius: 0.5rem;
+          transition: color 0.3s;
+          position: relative;
         }
         a:hover {
-          background-color: rgba(255,255,255,0.2);
+          color: #4f46e5;
         }
-        .cta {
-          background-color: white;
-          color: #ef4444;
-          border-radius: 2rem;
-          font-weight: bold;
+        a.active {
+          color: #4f46e5;
         }
-        .cta:hover {
-          background-color: #fef3c7;
-          transform: translateY(-2px);
+        a.active::after {
+          content: '';
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #4f46e5;
+        }
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: #4f46e5;
+          cursor: pointer;
         }
         @media (max-width: 768px) {
-          nav {
-            flex-direction: column;
-            gap: 1rem;
-          }
           ul {
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
+            display: none;
+          }
+          .mobile-menu-btn {
+            display: block;
           }
         }
       </style>
       <nav>
         <a href="/" class="logo">
           <i data-feather="coffee" class="logo-icon"></i>
-          Cireng Craze
+          Gourmet Bites
         </a>
+        <button class="mobile-menu-btn">
+          <i data-feather="menu"></i>
+        </button>
         <ul>
-          <li><a href="#products">Produk</a></li>
-          <li><a href="#testimonials">Testimoni</a></li>
-          <li><a href="about.html">Tentang Kami</a></li>
-          <li><a href="contact.html">Kontak</a></li>
-          <li><a href="#order" class="cta">Pesan Sekarang</a></li>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/menu.html">Menu</a></li>
+          <li><a href="/testimonials.html">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     `;
+    
+    // Initialize feather icons in shadow DOM
+    const featherScript = document.createElement('script');
+    featherScript.src = 'https://unpkg.com/feather-icons';
+    this.shadowRoot.appendChild(featherScript);
+    featherScript.onload = () => {
+      if (window.feather) {
+        window.feather.replace();
+      }
+    };
   }
 }
 customElements.define('custom-navbar', CustomNavbar);
