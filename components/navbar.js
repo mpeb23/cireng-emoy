@@ -4,66 +4,68 @@ class CustomNavbar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         nav {
-          background: white;
-          padding: 1.5rem 2rem;
+          background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+          padding: 1rem 2rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          position: sticky;
+          position: fixed;
+          width: 100%;
           top: 0;
           z-index: 1000;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo {
-          color: #4f46e5;
+          color: white;
           font-weight: bold;
           font-size: 1.5rem;
           display: flex;
           align-items: center;
         }
-        .logo-icon {
-          margin-right: 0.5rem;
-          color: #4f46e5;
+        .logo span {
+          margin-left: 0.5rem;
         }
         ul {
           display: flex;
-          gap: 2rem;
+          gap: 1.5rem;
           list-style: none;
           margin: 0;
           padding: 0;
         }
         a {
-          color: #4b5563;
+          color: white;
           text-decoration: none;
           font-weight: 500;
-          transition: color 0.3s;
-          position: relative;
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          transition: all 0.3s ease;
         }
         a:hover {
-          color: #4f46e5;
-        }
-        a.active {
-          color: #4f46e5;
-        }
-        a.active::after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: #4f46e5;
+          background-color: rgba(255,255,255,0.2);
         }
         .mobile-menu-btn {
           display: none;
           background: none;
           border: none;
-          color: #4f46e5;
+          color: white;
+          font-size: 1.5rem;
           cursor: pointer;
         }
         @media (max-width: 768px) {
           ul {
-            display: none;
+            position: fixed;
+            top: 4rem;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease;
+          }
+          ul.active {
+            transform: translateY(0);
           }
           .mobile-menu-btn {
             display: block;
@@ -71,31 +73,42 @@ class CustomNavbar extends HTMLElement {
         }
       </style>
       <nav>
-        <a href="/" class="logo">
-          <i data-feather="coffee" class="logo-icon"></i>
-          Gourmet Bites
-        </a>
-        <button class="mobile-menu-btn">
+        <div class="logo">
+          <i data-feather="coffee"></i>
+          <span>CirengCraze</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
           <i data-feather="menu"></i>
         </button>
-        <ul>
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="/menu.html">Menu</a></li>
-          <li><a href="/testimonials.html">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul id="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Menu</a></li>
+          <li><a href="#testimonials">Testimoni</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
       </nav>
     `;
-    
-    // Initialize feather icons in shadow DOM
-    const featherScript = document.createElement('script');
-    featherScript.src = 'https://unpkg.com/feather-icons';
-    this.shadowRoot.appendChild(featherScript);
-    featherScript.onload = () => {
-      if (window.feather) {
-        window.feather.replace();
-      }
-    };
+
+    // Mobile menu toggle
+    const mobileMenuBtn = this.shadowRoot.getElementById('mobile-menu-btn');
+    const navMenu = this.shadowRoot.getElementById('nav-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      feather.replace();
+    });
+
+    // Close menu when clicking a link
+    const navLinks = this.shadowRoot.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    feather.replace();
   }
 }
+
 customElements.define('custom-navbar', CustomNavbar);
