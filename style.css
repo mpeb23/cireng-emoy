@@ -1,34 +1,58 @@
-/* Custom styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Animation Classes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
-main {
-    flex: 1;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-/* Animation for buttons */
-button {
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Custom Styles */
+#vanta-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom button styles */
+.btn-whatsapp {
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+}
+
+/* Section transitions */
+section {
     transition: all 0.3s ease;
 }
 
-/* Custom shadow for cards */
-.shadow-custom {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+/* Product card hover effect */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover effect for menu items */
-.menu-item:hover {
+/* Testimonial card styles */
+.testimonial-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card:hover {
     transform: translateY(-5px);
-    transition: transform 0.3s ease;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .hero-content {
-        text-align: center;
-    }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
