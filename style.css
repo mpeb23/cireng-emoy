@@ -1,58 +1,189 @@
-/* Animation Classes */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
+/* ===== STYLE.CSS UNTUK CIRENG EMOY ===== */
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.float-animation {
-    animation: float 6s ease-in-out infinite;
-}
-
-.pulse-animation {
-    animation: pulse 2s ease-in-out infinite;
-}
-
-/* Custom Styles */
-#vanta-bg {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Smooth scrolling */
+/* ==== RESET DASAR ==== */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* Custom button styles */
-.btn-whatsapp {
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Section transitions */
-section {
-    transition: all 0.3s ease;
+/* ==== NAVBAR ==== */
+.glass {
+  background: rgba(34, 197, 94, 0.85); /* hijau transparan */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Product card hover effect */
+.glass.scrolled {
+  background: rgba(34, 197, 94, 0.95);
+  padding: 0.8rem 1.5rem;
+}
+
+/* ==== HERO ==== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  overflow: hidden;
+}
+
+/* gelembung dekoratif di background */
+#bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#bubbles span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  bottom: -150px;
+  animation: bubble 20s infinite;
+  border-radius: 50%;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-1200px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ==== ANIMASI TEKS KETIK ==== */
+.typing {
+  border-right: 3px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink 0.8s infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+/* ==== PRODUK ==== */
+.product-card {
+  transition: all 0.4s ease;
+}
+
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 128, 0, 0.15);
 }
 
-/* Testimonial card styles */
-.testimonial-card {
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+/* scrollbar disembunyikan */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* ==== ANIMASI MASUK ==== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease-out;
+}
+.fade-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease-out;
+}
+.fade-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==== FORM TESTIMONI ==== */
+#testimonialForm input,
+#testimonialForm textarea {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#testimonialForm input:focus,
+#testimonialForm textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+/* Pesan sukses animasi */
+#successMessage {
+  animation: popUp 0.6s ease forwards;
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==== FOOTER (optional jika ditambah nanti) ==== */
+footer {
+  background: #14532d;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
 }
