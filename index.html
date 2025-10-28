@@ -13,35 +13,24 @@
 <body class="bg-gray-100">
     <custom-navbar></custom-navbar>
     
-    <!-- Hero Section -->
-    <div id="vanta-bg" class="relative overflow-hidden h-screen flex items-center justify-center text-white">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-bounce">Cireng Emoy</h1>
-            <p class="text-xl md:text-2xl mb-8">Cireng Emoy Buatan Home Made</p>
-            <a href="#products" class="bg-amber-300 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 inline-block">
-                Lihat Menu
-            </a>
-        </div>
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script>
-  VANTA.WAVES({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x4ade80, // hijau muda
-    shininess: 40,
-    waveHeight: 20,
-    waveSpeed: 1.5,
-    zoom: 0.85
-  });
-</script>
+    <<!-- Hero Section -->
+<div class="relative overflow-hidden h-screen flex items-center justify-center text-white bg-cover bg-center" 
+     style="background-image: url('gambar.png');">
+  
+  <!-- Overlay gelap agar teks tetap terbaca -->
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <!-- Konten di atas background -->
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">Cireng Emoy</h1>
+    <p class="text-xl md:text-2xl mb-8 drop-shadow-md">Cireng Emoy Buatan Home Made</p>
+    <a href="#products" 
+       class="bg-green-400 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 inline-block shadow-lg">
+      Lihat Menu
+    </a>
+  </div>
+</div>
+
 
     <!-- Products Section -->
     <section id="products" class="py-16 px-4">
