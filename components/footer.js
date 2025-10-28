@@ -69,7 +69,7 @@ class CustomFooter extends HTMLElement {
           </div>
         </div>
         <div class="copyright">
-          &copy; ${new Date().getFullYear()} CirengCraze Express. All rights reserved.
+          &copy; ${new Date().getFullYear()} Cireng Emoy. All rights reserved.
         </div>
       </footer>
     `;
