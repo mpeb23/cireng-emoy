@@ -61,7 +61,7 @@ class CustomFooter extends HTMLElement {
           <div class="footer-section">
             <h3>Sosial Media</h3>
             <div class="social-icons">
-              <a href="#"><i data-feather="instagram"></i></a>
+              <a href="https://www.instagram.com/familysnackkrw?igsh=c3N1M3M4bmh1cDJi"><i data-feather="instagram"></i></a>
               <a href="#"><i data-feather="facebook"></i></a>
               <a href="#"><i data-feather="twitter"></i></a>
               <a href="#"><i data-feather="youtube"></i></a>
