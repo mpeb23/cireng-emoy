@@ -75,7 +75,7 @@ class CustomNavbar extends HTMLElement {
       <nav>
         <div class="logo">
           <i data-feather="coffee"></i>
-          <span>CirengCraze</span>
+          <span>Cireng Emoy Cikampek</span>
         </div>
         <button class="mobile-menu-btn" id="mobile-menu-btn">
           <i data-feather="menu"></i>
