@@ -99,3 +99,46 @@ document.getElementById("testimonialForm").addEventListener("submit", function (
   // Sembunyikan pesan sukses setelah 5 detik
   setTimeout(() => success.classList.add("hidden"), 5000);
 });
+document.getElementById("testimonialForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  const kota = document.getElementById("kota").value.trim();
+  const pesan = document.getElementById("pesan").value.trim();
+  const success = document.getElementById("successMessage");
+  const testimoniList = document.getElementById("testimoniList");
+
+  if (!nama || !kota || !pesan) {
+    alert("Harap isi semua kolom sebelum mengirim testimoni.");
+    return;
+  }
+
+  // Random avatar
+  const avatarNum = Math.floor(Math.random() * 70) + 1;
+  const avatarUrl = `https://i.pravatar.cc/100?img=${avatarNum}`;
+
+  // Buat elemen testimoni baru
+  const newCard = document.createElement("div");
+  newCard.className =
+    "testi-card new bg-green-50 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300";
+
+  newCard.innerHTML = `
+    <div class="flex justify-center mb-4">
+      <img src="${avatarUrl}" alt="${nama}" class="w-20 h-20 rounded-full object-cover border-4 border-green-400">
+    </div>
+    <p class="text-gray-700 italic mb-4">“${pesan}”</p>
+    <h4 class="font-semibold text-green-600">— ${nama}, ${kota}</h4>
+  `;
+
+  // Tambahkan ke daftar testimoni
+  testimoniList.prepend(newCard);
+
+  // Tampilkan pesan sukses
+  success.classList.remove("hidden");
+
+  // Reset form
+  this.reset();
+
+  // Sembunyikan pesan sukses setelah 5 detik
+  setTimeout(() => success.classList.add("hidden"), 5000);
+});
