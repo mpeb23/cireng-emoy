@@ -1,15 +1,15 @@
 // Testimonials data
 const testimonials = [
     {
-        name: "Budi Developer",
+        name: "Budi",
         message: "Cirengnya enak banget! Bikin coding jadi lebih semangat, bug langsung ketemu semua!"
     },
     {
-        name: "Ani Programmer",
+        name: "Ani",
         message: "Pedasnya pas banget buat temenin ngerjain project tengah malam. Recomended!"
     },
     {
-        name: "Joko Fullstack",
+        name: "Joko ",
         message: "Harganya murah, rasanya premium. Kalo gak percaya, coba sendiri!"
     }
 ];

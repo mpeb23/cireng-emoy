@@ -50,13 +50,13 @@ class CustomFooter extends HTMLElement {
         <div class="footer-content">
           <div class="footer-section">
             <h3>Tentang Kami</h3>
-            <p>CirengCraze Express menyajikan cireng dengan cita rasa Emoy PHP yang unik dan berbeda.</p>
+            <p>Cireng Emoy menyajikan cireng dengan cita rasa Gurih pedas .</p>
           </div>
           <div class="footer-section">
             <h3>Kontak</h3>
             <p><i data-feather="map-pin"></i> Jl. PHP Developer No. 42, Bandung</p>
             <p><i data-feather="phone"></i> +62 812-3456-7890</p>
-            <p><i data-feather="mail"></i> cireng@emoyphp.com</p>
+            <p><i data-feather="mail"></i> pebrianaherak23@gmail.com</p>
           </div>
           <div class="footer-section">
             <h3>Sosial Media</h3>
