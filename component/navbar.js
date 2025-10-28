@@ -130,3 +130,50 @@ class CustomNavbar extends HTMLElement {
   }
 }
 customElements.define('custom-navbar', CustomNavbar);
+
+class CustomNavbar extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+          <!-- Logo -->
+          <a href="#" class="text-2xl font-bold text-white flex items-center gap-2">
+            <img src="https://img.icons8.com/emoji/48/000000/fried-shrimp.png" alt="logo" class="w-8 h-8">
+            Cireng <span class="text-amber-300">Emoy</span>
+          </a>
+
+          <!-- Menu -->
+          <div class="hidden md:flex space-x-8 text-white font-medium">
+            <a href="#hero" class="hover:text-amber-300 transition">Beranda</a>
+            <a href="#products" class="hover:text-amber-300 transition">Menu</a>
+            <a href="#testimonials" class="hover:text-amber-300 transition">Testimoni</a>
+            <a href="#contact" class="hover:text-amber-300 transition">Kontak</a>
+          </div>
+
+          <!-- Tombol WhatsApp -->
+          <a href="https://wa.me/6281234567890?text=Halo%20Cireng%20Emoy,%20saya%20mau%20pesan" 
+             class="hidden md:inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition">
+            Pesan Sekarang
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden flex flex-col items-center bg-orange-500 text-white space-y-4 py-6 md:hidden">
+          <a href="#hero" class="hover:text-amber-300">Beranda</a>
+          <a href="#products" class="hover:text-amber-300">Menu</a>
+          <a href="#testimonials" class="hover:text-amber-300">Testimoni</a>
+          <a href="#contact" class="hover:text-amber-300">Kontak</a>
+          <a href="https://wa.me/6281234567890?text=Halo%20Cireng%20Emoy,%20saya%20mau%20pesan"
+             class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition">Pesan Sekarang</a>
+        </div>
+      </nav>
+    `;
+  }
+}
+
+customElements.define("custom-navbar", CustomNavbar);

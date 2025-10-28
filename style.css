@@ -22,3 +22,14 @@ body {
 .pulse-animation {
     animation: pulse 2s infinite;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+nav a {
+  transition: color 0.3s ease;
+}
+
+#navbar.bg-white a:hover {
+  color: #f97316; /* oranye */
+}
