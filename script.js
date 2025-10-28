@@ -130,15 +130,71 @@ document.getElementById("testimonialForm").addEventListener("submit", function (
     <h4 class="font-semibold text-green-600">— ${nama}, ${kota}</h4>
   `;
 
-  // Tambahkan ke daftar testimoni
-  testimoniList.prepend(newCard);
+  const testimoniList = document.getElementById("testimoniList");
+const form = document.getElementById("testimonialForm");
+const success = document.getElementById("successMessage");
 
-  // Tampilkan pesan sukses
+// Ambil testimoni dari localStorage
+let testimoniData = JSON.parse(localStorage.getItem("testimoniData")) || [];
+
+// Render testimoni di halaman
+function renderTestimoni() {
+  testimoniList.innerHTML = "";
+
+  if (testimoniData.length === 0) {
+    testimoniList.innerHTML = `
+      <p class="text-gray-500 text-lg italic">Belum ada testimoni. Jadilah yang pertama! 💚</p>
+    `;
+    return;
+  }
+
+  testimoniData.slice().reverse().forEach((item) => {
+    const card = document.createElement("div");
+    card.className =
+      "testi-card bg-green-50 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300";
+
+    card.innerHTML = `
+      <div class="flex justify-center mb-4">
+        <img src="${item.avatar}" alt="${item.nama}" class="w-20 h-20 rounded-full object-cover border-4 border-green-400">
+      </div>
+      <p class="text-gray-700 italic mb-4">“${item.pesan}”</p>
+      <h4 class="font-semibold text-green-600">— ${item.nama}, ${item.kota}</h4>
+    `;
+    testimoniList.appendChild(card);
+  });
+}
+
+// Simpan testimoni baru
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  const kota = document.getElementById("kota").value.trim();
+  const pesan = document.getElementById("pesan").value.trim();
+
+  if (!nama || !kota || !pesan) {
+    alert("Harap isi semua kolom sebelum mengirim testimoni.");
+    return;
+  }
+
+  const avatarNum = Math.floor(Math.random() * 70) + 1;
+  const avatarUrl = `https://i.pravatar.cc/100?img=${avatarNum}`;
+
+  const newData = { nama, kota, pesan, avatar: avatarUrl };
+
+  testimoniData.push(newData);
+
+  // Simpan ke localStorage
+  localStorage.setItem("testimoniData", JSON.stringify(testimoniData));
+
+  // Render ulang daftar testimoni
+  renderTestimoni();
+
+  // Animasi sukses
   success.classList.remove("hidden");
-
-  // Reset form
-  this.reset();
-
-  // Sembunyikan pesan sukses setelah 5 detik
-  setTimeout(() => success.classList.add("hidden"), 5000);
+  form.reset();
+  setTimeout(() => success.classList.add("hidden"), 4000);
 });
+
+// Render testimoni saat halaman pertama kali dibuka
+renderTestimoni();
