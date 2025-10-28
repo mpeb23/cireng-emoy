@@ -43,10 +43,3 @@ function typeText() {
   }
 }
 window.addEventListener('load', typeText);
-// LOADING SCREEN
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  setTimeout(() => {
-    loader.classList.add("hidden");
-  }, 1000); // loader tampil 1 detik, lalu hilang
-});
