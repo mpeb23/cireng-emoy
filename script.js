@@ -76,3 +76,26 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
   });
 });
+
+// Form interaktif sederhana
+document.getElementById("testimonialForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  const kota = document.getElementById("kota").value.trim();
+  const pesan = document.getElementById("pesan").value.trim();
+  const success = document.getElementById("successMessage");
+
+  if (!nama || !kota || !pesan) {
+    alert("Harap isi semua kolom sebelum mengirim testimoni.");
+    return;
+  }
+
+  success.classList.remove("hidden");
+
+  // Reset form
+  this.reset();
+
+  // Sembunyikan pesan sukses setelah 5 detik
+  setTimeout(() => success.classList.add("hidden"), 5000);
+});
