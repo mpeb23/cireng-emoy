@@ -5,6 +5,25 @@ const navbar = document.querySelector('nav');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
+// ===== SCROLL ANIMATION =====
+const fadeElements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+
+function checkFadeIn() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  fadeElements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+
+    if (boxTop < triggerBottom) {
+      el.classList.add('show');
+    } else {
+      el.classList.remove('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkFadeIn);
+checkFadeIn(); // Jalankan saat halaman pertama kali dimuat
 
 // Efek muncul saat scroll
 const fadeEls = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
