@@ -62,3 +62,17 @@ function typeText() {
   }
 }
 window.addEventListener('load', typeText);
+// Tombol panah untuk scroll produk
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollContainer = document.getElementById("productScroll");
+  const leftBtn = document.getElementById("scrollLeft");
+  const rightBtn = document.getElementById("scrollRight");
+
+  leftBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -350, behavior: "smooth" });
+  });
+
+  rightBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: 350, behavior: "smooth" });
+  });
+});
