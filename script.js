@@ -62,3 +62,20 @@ function revealElements() {
     }
   }
 }
+// Scroll Reveal Animation (dengan efek stagger)
+window.addEventListener('scroll', revealElements);
+
+function revealElements() {
+  const reveals = document.querySelectorAll('.reveal');
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach((el) => {
+    const revealTop = el.getBoundingClientRect().top;
+    const revealPoint = 120;
+    if (revealTop < windowHeight - revealPoint) {
+      el.classList.add('active');
+    } else {
+      el.classList.remove('active');
+    }
+  });
+}
