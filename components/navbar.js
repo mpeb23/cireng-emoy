@@ -4,8 +4,9 @@ class CustomNavbar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         nav {
-          background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
-          padding: 0.6rem 1.2rem; /* lebih kecil dari 1rem 2rem */
+          background: linear-gradient(135deg, #4ade80 0%, #86efac 100%);
+          /* hijau muda ke hijau pastel */
+          padding: 0.6rem 1.2rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -18,7 +19,7 @@ class CustomNavbar extends HTMLElement {
         .logo {
           color: white;
           font-weight: 600;
-          font-size: 1.2rem; /* dari 1.5rem → lebih kecil */
+          font-size: 1.2rem;
           display: flex;
           align-items: center;
         }
@@ -27,7 +28,7 @@ class CustomNavbar extends HTMLElement {
         }
         ul {
           display: flex;
-          gap: 1rem; /* sebelumnya 1.5rem */
+          gap: 1rem;
           list-style: none;
           margin: 0;
           padding: 0;
@@ -36,29 +37,29 @@ class CustomNavbar extends HTMLElement {
           color: white;
           text-decoration: none;
           font-weight: 500;
-          font-size: 0.9rem; /* font link lebih kecil */
-          padding: 0.3rem 0.7rem; /* padding link lebih kecil */
+          font-size: 0.9rem;
+          padding: 0.3rem 0.7rem;
           border-radius: 0.4rem;
           transition: all 0.3s ease;
         }
         a:hover {
-          background-color: rgba(255,255,255,0.2);
+          background-color: rgba(255,255,255,0.25);
         }
         .mobile-menu-btn {
           display: none;
           background: none;
           border: none;
           color: white;
-          font-size: 1.3rem; /* sedikit lebih kecil */
+          font-size: 1.3rem;
           cursor: pointer;
         }
         @media (max-width: 768px) {
           ul {
             position: fixed;
-            top: 3.5rem; /* menyesuaikan tinggi nav */
+            top: 3.5rem;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+            background: linear-gradient(135deg, #4ade80 0%, #86efac 100%);
             flex-direction: column;
             padding: 0.8rem;
             gap: 0.8rem;
@@ -73,6 +74,7 @@ class CustomNavbar extends HTMLElement {
           }
         }
       </style>
+
       <nav>
         <div class="logo">
           <i data-feather="coffee"></i>
