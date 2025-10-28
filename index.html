@@ -13,37 +13,29 @@
       scroll-behavior: smooth;
     }
 
-    /* ===== FADE-IN ANIMATION ===== */
+    /* ===== ANIMASI ===== */
+    .fade-in, .fade-left, .fade-right {
+      opacity: 0;
+      transition: all 1s ease;
+    }
     .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease;
+      transform: translateY(30px);
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Arah khusus untuk variasi animasi */
     .fade-left {
-      opacity: 0;
       transform: translateX(-40px);
-      transition: all 1s ease;
     }
     .fade-right {
-      opacity: 0;
       transform: translateX(40px);
-      transition: all 1s ease;
     }
-    .fade-left.visible, .fade-right.visible {
+    .visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translate(0, 0);
     }
 
     /* ===== NAVBAR ===== */
     nav.glass {
       background: rgba(74, 222, 128, 0.8);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       transition: all 0.4s ease;
     }
     nav.glass.scrolled {
@@ -53,12 +45,10 @@
 
     /* ===== HERO SECTION ===== */
     .hero {
-      background-image: url('gambar.png');
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
+      background: url('gambar.png') no-repeat center/cover;
       position: relative;
       overflow: hidden;
+      background-attachment: fixed;
     }
     .hero::before {
       content: "";
@@ -81,7 +71,7 @@
       100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
 
-    /* Produk hover glow */
+    /* Produk hover */
     .product-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -107,34 +97,31 @@
     </ul>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!-- ===== HERO ===== -->
   <section id="home" class="hero h-screen flex items-center justify-center text-white">
     <div id="bubbles"></div>
     <div class="text-center z-10 fade-in">
       <h1 class="text-6xl md:text-7xl font-bold mb-6 drop-shadow-lg">Cireng Emoy</h1>
       <p class="text-2xl mb-8 font-light">Cireng Home Made Gurih, Lembut, dan Bikin Nagih!</p>
-      <a href="#products"
-         class="bg-green-400 hover:bg-green-600 text-white font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+      <a href="#products" class="bg-green-400 hover:bg-green-600 text-white font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
         Lihat Menu
       </a>
     </div>
   </section>
 
-  <!-- ===== PRODUCTS ===== -->
+  <!-- ===== PRODUK ===== -->
   <section id="products" class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-4xl font-bold mb-12 text-green-600 fade-in">Menu Cireng Kami</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
         <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-left">
-          <img src="ayamori.jpg" class="w-full h-64 object-cover" alt="Cireng Isi Ayam Original">
+          <img src="ayamori.jpg" class="w-full h-64 object-cover">
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Original</h3>
             <p class="text-gray-600 mb-4">Rasa ayam gurih dengan aroma bawang khas — cocok untuk semua momen.</p>
             <div class="flex justify-between items-center">
               <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
-              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Original"
-                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Original" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
                 <i data-feather="shopping-cart" class="mr-2"></i>Pesan
               </a>
             </div>
@@ -142,14 +129,13 @@
         </div>
 
         <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
-          <img src="ayampedas.jpeg" class="w-full h-64 object-cover" alt="Cireng Isi Ayam Pedas">
+          <img src="ayampedas.jpeg" class="w-full h-64 object-cover">
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Pedas</h3>
             <p class="text-gray-600 mb-4">Sensasi pedas khas Bandung yang menggugah selera — siap bikin nagih!</p>
             <div class="flex justify-between items-center">
               <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
-              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Pedas"
-                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Pedas" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
                 <i data-feather="shopping-cart" class="mr-2"></i>Pesan
               </a>
             </div>
@@ -157,14 +143,13 @@
         </div>
 
         <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-right">
-          <img src="keju.jpg" class="w-full h-64 object-cover" alt="Cireng Keju Lumer">
+          <img src="keju.jpg" class="w-full h-64 object-cover">
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-2">Cireng Keju Lumer</h3>
             <p class="text-gray-600 mb-4">Perpaduan gurihnya cireng dan lembutnya keju yang meleleh di mulut!</p>
             <div class="flex justify-between items-center">
               <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
-              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Keju%20Lumer"
-                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Keju%20Lumer" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
                 <i data-feather="shopping-cart" class="mr-2"></i>Pesan
               </a>
             </div>
@@ -174,31 +159,64 @@
     </div>
   </section>
 
-  <!-- ===== WHATSAPP FLOAT BUTTON ===== -->
-  <a href="https://wa.me/6281380637870"
-     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-50">
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-20 px-6 bg-green-50">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <img src="home.jpeg" alt="Tentang Kami" class="md:w-1/2 rounded-xl shadow-lg fade-left">
+      <div class="md:w-1/2 fade-right">
+        <h2 class="text-3xl font-bold mb-4 text-green-600">Tentang Kami</h2>
+        <p class="text-gray-700 mb-4">Cireng Emoy adalah produk home made yang dibuat dengan cinta dan bahan pilihan berkualitas. Kami menghadirkan cita rasa khas jajanan Bandung dengan sentuhan rumahan — gurih, kenyal, dan selalu fresh setiap kali digoreng.</p>
+        <p class="text-gray-700 mb-6">Tanpa pengawet, diproses secara higienis, dan siap menemani waktu santai kamu kapan saja!</p>
+        <a href="#contact" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-left">
+        <h2 class="text-3xl font-bold text-green-600 mb-6">Hubungi Kami</h2>
+        <p class="text-gray-700 mb-4">📍 Perumahan Sadjati Garden City Blok A No 21, Pangulah Utara, Karawang</p>
+        <p class="text-gray-700 mb-2">📞 +62 813-8063-7870</p>
+        <p class="text-gray-700 mb-6">📧 pebrianaherak23@gmail.com</p>
+      </div>
+
+      <form class="space-y-4 fade-right">
+        <input type="text" placeholder="Nama Anda" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+        <input type="email" placeholder="Email Anda" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+        <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+          Kirim Pesan
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+  <a href="https://wa.me/6281380637870" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-50">
     <i data-feather="message-circle" class="w-6 h-6"></i>
   </a>
 
   <script>
     feather.replace();
 
-    // Navbar scroll effect
+    // Navbar effect
     const navbar = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Fade-in animations
-    const fadeElements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+    // Animasi muncul saat scroll
+    const fadeEls = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
-    fadeElements.forEach(el => observer.observe(el));
+    fadeEls.forEach(el => observer.observe(el));
 
-    // Bubble animation
+    // Bubble efek
     const bubbleContainer = document.getElementById('bubbles');
     function createBubble() {
       const bubble = document.createElement('div');
