@@ -5,7 +5,7 @@ class CustomNavbar extends HTMLElement {
       <style>
         nav {
           background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
-          padding: 1rem 2rem;
+          padding: 0.6rem 1.2rem; /* lebih kecil dari 1rem 2rem */
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -13,21 +13,21 @@ class CustomNavbar extends HTMLElement {
           width: 100%;
           top: 0;
           z-index: 1000;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .logo {
           color: white;
-          font-weight: bold;
-          font-size: 1.5rem;
+          font-weight: 600;
+          font-size: 1.2rem; /* dari 1.5rem → lebih kecil */
           display: flex;
           align-items: center;
         }
         .logo span {
-          margin-left: 0.5rem;
+          margin-left: 0.4rem;
         }
         ul {
           display: flex;
-          gap: 1.5rem;
+          gap: 1rem; /* sebelumnya 1.5rem */
           list-style: none;
           margin: 0;
           padding: 0;
@@ -36,8 +36,9 @@ class CustomNavbar extends HTMLElement {
           color: white;
           text-decoration: none;
           font-weight: 500;
-          padding: 0.5rem 1rem;
-          border-radius: 0.5rem;
+          font-size: 0.9rem; /* font link lebih kecil */
+          padding: 0.3rem 0.7rem; /* padding link lebih kecil */
+          border-radius: 0.4rem;
           transition: all 0.3s ease;
         }
         a:hover {
@@ -48,19 +49,19 @@ class CustomNavbar extends HTMLElement {
           background: none;
           border: none;
           color: white;
-          font-size: 1.5rem;
+          font-size: 1.3rem; /* sedikit lebih kecil */
           cursor: pointer;
         }
         @media (max-width: 768px) {
           ul {
             position: fixed;
-            top: 4rem;
+            top: 3.5rem; /* menyesuaikan tinggi nav */
             left: 0;
             right: 0;
             background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
             flex-direction: column;
-            padding: 1rem;
-            gap: 1rem;
+            padding: 0.8rem;
+            gap: 0.8rem;
             transform: translateY(-150%);
             transition: transform 0.3s ease;
           }
@@ -90,7 +91,6 @@ class CustomNavbar extends HTMLElement {
       </nav>
     `;
 
-    // Mobile menu toggle
     const mobileMenuBtn = this.shadowRoot.getElementById('mobile-menu-btn');
     const navMenu = this.shadowRoot.getElementById('nav-menu');
 
@@ -99,7 +99,6 @@ class CustomNavbar extends HTMLElement {
       feather.replace();
     });
 
-    // Close menu when clicking a link
     const navLinks = this.shadowRoot.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
