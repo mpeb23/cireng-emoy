@@ -1,14 +1,13 @@
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `
       <style>
         nav {
           background: linear-gradient(135deg, #4ade80 0%, #86efac 100%);
-          /* hijau muda ke hijau pastel */
           padding: 0.6rem 1.2rem;
           display: flex;
-          justify-content: space-between;
+          justify-content: center; /* tengah secara keseluruhan */
           align-items: center;
           position: fixed;
           width: 100%;
@@ -16,6 +15,16 @@ class CustomNavbar extends HTMLElement {
           z-index: 1000;
           box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        /* bungkus isi navbar biar tidak nempel ke tepi */
+        .nav-container {
+          width: 100%;
+          max-width: 1200px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
         .logo {
           color: white;
           font-weight: 600;
@@ -23,9 +32,11 @@ class CustomNavbar extends HTMLElement {
           display: flex;
           align-items: center;
         }
+
         .logo span {
           margin-left: 0.4rem;
         }
+
         ul {
           display: flex;
           gap: 1rem;
@@ -33,6 +44,7 @@ class CustomNavbar extends HTMLElement {
           margin: 0;
           padding: 0;
         }
+
         a {
           color: white;
           text-decoration: none;
@@ -42,9 +54,11 @@ class CustomNavbar extends HTMLElement {
           border-radius: 0.4rem;
           transition: all 0.3s ease;
         }
+
         a:hover {
           background-color: rgba(255,255,255,0.25);
         }
+
         .mobile-menu-btn {
           display: none;
           background: none;
@@ -53,6 +67,7 @@ class CustomNavbar extends HTMLElement {
           font-size: 1.3rem;
           cursor: pointer;
         }
+
         @media (max-width: 768px) {
           ul {
             position: fixed;
@@ -66,9 +81,11 @@ class CustomNavbar extends HTMLElement {
             transform: translateY(-150%);
             transition: transform 0.3s ease;
           }
+
           ul.active {
             transform: translateY(0);
           }
+
           .mobile-menu-btn {
             display: block;
           }
@@ -76,35 +93,39 @@ class CustomNavbar extends HTMLElement {
       </style>
 
       <nav>
-        <div class="logo">
-          <i data-feather="coffee"></i>
-          <span>Cireng Emoy Cikampek</span>
+        <div class="nav-container">
+          <div class="logo">
+            <i data-feather="coffee"></i>
+            <span>Cireng Emoy Cikampek</span>
+          </div>
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i data-feather="menu"></i>
+          </button>
+
+          <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Menu</a></li>
+            <li><a href="#testimonials">Testimoni</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
         </div>
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-          <i data-feather="menu"></i>
-        </button>
-        <ul id="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#products">Menu</a></li>
-          <li><a href="#testimonials">Testimoni</a></li>
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
       </nav>
     `;
 
-    const mobileMenuBtn = this.shadowRoot.getElementById('mobile-menu-btn');
-    const navMenu = this.shadowRoot.getElementById('nav-menu');
+    const mobileMenuBtn = this.shadowRoot.getElementById("mobile-menu-btn");
+    const navMenu = this.shadowRoot.getElementById("nav-menu");
 
-    mobileMenuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+    mobileMenuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
       feather.replace();
     });
 
-    const navLinks = this.shadowRoot.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+    const navLinks = this.shadowRoot.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
       });
     });
 
@@ -112,4 +133,4 @@ class CustomNavbar extends HTMLElement {
   }
 }
 
-customElements.define('custom-navbar', CustomNavbar);
+customElements.define("custom-navbar", CustomNavbar);
