@@ -199,3 +199,23 @@ footer {
   opacity: 1;
   transform: translate(0, 0);
 }
+
+// ====== BACKGROUND BUBBLES ======
+const bubbleContainer = document.getElementById("bubbles");
+
+function createBubble() {
+  const bubble = document.createElement("span");
+  bubble.classList.add("bubble");
+  const size = Math.random() * 60 + 20 + "px";
+  bubble.style.width = size;
+  bubble.style.height = size;
+  bubble.style.left = Math.random() * innerWidth + "px";
+  bubble.style.animationDuration = Math.random() * 6 + 4 + "s";
+  bubbleContainer.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.remove();
+  }, 10000);
+}
+
+setInterval(createBubble, 400);
