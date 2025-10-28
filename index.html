@@ -1,236 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cireng Isi Home Made - Jualan Cireng Emoy</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cireng Emoy - Cireng Isi Home Made</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== FADE-IN ANIMATION ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Arah khusus untuk variasi animasi */
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 1s ease;
+    }
+    .fade-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 1s ease;
+    }
+    .fade-left.visible, .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav.glass {
+      background: rgba(74, 222, 128, 0.8);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s ease;
+    }
+    nav.glass.scrolled {
+      background: rgba(74, 222, 128, 0.95);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background-image: url('gambar.png');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(34,197,94,0.4));
+      z-index: 1;
+    }
+
+    /* ===== BUBBLE EFFECT ===== */
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Produk hover glow */
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
-    <custom-navbar></custom-navbar>
-    
-    <<!-- Hero Section -->
-<div class="relative overflow-hidden h-screen flex items-center justify-center text-white bg-cover bg-center" 
-     style="background-image: url('gambar.png');">
-  
-  <!-- Overlay gelap agar teks tetap terbaca -->
-  <div class="absolute inset-0 bg-black opacity-40"></div>
 
-  <!-- Konten di atas background -->
-  <div class="relative z-10 text-center px-4">
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">Cireng Emoy</h1>
-    <p class="text-xl md:text-2xl mb-8 drop-shadow-md">Cireng Emoy Buatan Home Made</p>
-    <a href="#products" 
-       class="bg-green-400 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 inline-block shadow-lg">
-      Lihat Menu
-    </a>
-  </div>
-</div>
-
-
-    <!-- Products Section -->
-    <section id="products" class="py-16 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Menu Cireng Kami</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-                    <img src="ayamori.jpg" alt="Cireng Original" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Original</h3>
-                        <p class="text-gray-600 mb-4">Perpaduan rasa ayam yang gurih dan aroma bawang yang harum menjadikan cireng ini cocok dinikmati kapan saja </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-amber-600">Rp 2.500/pcs</span>
-                            <a href="https://wa.me/62081380637870?text=Saya%20mau%20pesan%20Cireng%20Original" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center">
-                                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-                    <img src="ayampedas.jpeg" alt="Cireng Pedas" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Pedas</h3>
-                        <p class="text-gray-600 mb-4">Nikmati sensasi pedas gurih khas jajanan Bandung dengan Cireng Isi Ayam Pedas!</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-amber-600">Rp 2.500/pcs</span>
-                            <a href="https://wa.me/6281380637870?text=Saya%20mau%20pesan%20Cireng%20Pedas" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center">
-                                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-                    <img src="jando.jpeg" alt="Cireng Pedas" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Cireng Isi Jando Pedas</h3>
-                        <p class="text-gray-600 mb-4">Cobain sensasi pedas gurih khas Bandung dari Cireng Isi Jando Pedas!</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-amber-600">Rp 2.500/pcs</span>
-                            <a href="https://wa.me/6281380637870?text=Saya%20mau%20pesan%20Cireng%20Pedas" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center">
-                                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-                    <img src="http://static.photos/food/640x360/3" alt="Cireng Keju" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Cireng Keju/Keju Lumer</h3>
-                        <p class="text-gray-600 mb-4">Nikmati sensasi lezat dari perpaduan cireng kenyal khas Bandung dengan lembutnya keju lumer di dalamnya</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-amber-600">Rp 2.500/pcs</span>
-                            <a href="https://wa.me/6281234567890?text=Saya%20mau%20pesan%20Cireng%20Keju" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center">
-                                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-gray-50 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Testimoni Pelanggan</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" id="testimonial-container">
-                <!-- Testimonials will be loaded here via JavaScript -->
-            </div>
-            
-            <!-- Testimonial Form -->
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-2xl font-bold mb-6">Kasih Testimoni Anda</h3>
-                <form id="testimonial-form" class="space-y-4">
-                    <div>
-                        <label for="name" class="block text-gray-700 mb-2">Nama</label>
-                        <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-700 mb-2">Testimoni</label>
-                        <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
-                    </div>
-                    <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                        Kirim Testimoni
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Tentang Kami</h2>
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="home.jpeg" alt="Tentang Kami" class="rounded-xl shadow-lg w-full">
-                </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">Cireng Emoy Cikampek</h3>
-                    <p class="text-gray-700 mb-4">Cireng Emoy adalah produk home made yang dibuat dengan cinta dan bahan-bahan pilihan berkualitas. Kami menghadirkan cita rasa khas jajanan Bandung dengan sentuhan rumahan — gurih, kenyal, dan selalu fresh setiap kali digoreng.
-
-Semua produk Cireng Emoy diproses secara higienis tanpa bahan pengawet, menggunakan resep rumahan yang terjaga keasliannya. Kami percaya, camilan enak tak harus rumit — cukup goreng sebentar, dan nikmati kelezatan cireng isi yang bikin nagih!
-
-Dari dapur sederhana, kami ingin membawa kelezatan Cireng Emoy ke setiap rumah di Indonesia. 💛</p>
-                    <p class="text-gray-700 mb-6">Dibuat dengan bahan pilihan dan bumbu rahasia yang membuat cireng kami berbeda dari yang lain.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-amber-600 hover:text-amber-700">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="#" class="text-amber-600 hover:text-amber-700">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="#" class="text-amber-600 hover:text-amber-700">
-                            <i data-feather="twitter"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-amber-50 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Hubungi Kami</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Info Kontak</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i data-feather="map-pin" class="mr-4 text-amber-600"></i>
-                            <span>Perumahan Sadjati Garden City Blok A No 21 Pangulah Utara Kotabaru Karawang</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="phone" class="mr-4 text-amber-600"></i>
-                            <span>+62 813-8063-7870</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="mail" class="mr-4 text-amber-600"></i>
-                            <span>pebrianaherak23@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="clock" class="mr-4 text-amber-600"></i>
-                            <span>Buka setiap hari 09:00 - 21:00</span>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Kirim Pesan</h3>
-                    <form class="space-y-4">
-                        <div>
-                            <input type="text" placeholder="Nama Anda" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Email Anda" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        </div>
-                        <div>
-                            <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
-                        </div>
-                        <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                            Kirim Pesan
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <custom-footer></custom-footer>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/6281380637870" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-            <i data-feather="message-circle" class="w-6 h-6"></i>
-        </a>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+  <!-- ===== NAVBAR ===== -->
+  <nav class="glass fixed w-full top-0 z-50 flex justify-between items-center px-6 py-4 text-white">
+    <div class="font-bold text-xl flex items-center space-x-2">
+      <i data-feather="coffee"></i>
+      <span>Cireng Emoy</span>
     </div>
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#home" class="hover:text-amber-200">Home</a></li>
+      <li><a href="#products" class="hover:text-amber-200">Menu</a></li>
+      <li><a href="#about" class="hover:text-amber-200">Tentang</a></li>
+      <li><a href="#contact" class="hover:text-amber-200">Kontak</a></li>
+    </ul>
+  </nav>
 
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
-    <script src="script.js"></script>
-    <script>
-        feather.replace();
-        VANTA.NET({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0xffa500,
-            backgroundColor: 0x0
-        });
-    </script>
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero h-screen flex items-center justify-center text-white">
+    <div id="bubbles"></div>
+    <div class="text-center z-10 fade-in">
+      <h1 class="text-6xl md:text-7xl font-bold mb-6 drop-shadow-lg">Cireng Emoy</h1>
+      <p class="text-2xl mb-8 font-light">Cireng Home Made Gurih, Lembut, dan Bikin Nagih!</p>
+      <a href="#products"
+         class="bg-green-400 hover:bg-green-600 text-white font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+        Lihat Menu
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12 text-green-600 fade-in">Menu Cireng Kami</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-left">
+          <img src="ayamori.jpg" class="w-full h-64 object-cover" alt="Cireng Isi Ayam Original">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Original</h3>
+            <p class="text-gray-600 mb-4">Rasa ayam gurih dengan aroma bawang khas — cocok untuk semua momen.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Original"
+                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+          <img src="ayampedas.jpeg" class="w-full h-64 object-cover" alt="Cireng Isi Ayam Pedas">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Cireng Isi Ayam Pedas</h3>
+            <p class="text-gray-600 mb-4">Sensasi pedas khas Bandung yang menggugah selera — siap bikin nagih!</p>
+            <div class="flex justify-between items-center">
+              <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Ayam%20Pedas"
+                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden fade-right">
+          <img src="keju.jpg" class="w-full h-64 object-cover" alt="Cireng Keju Lumer">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Cireng Keju Lumer</h3>
+            <p class="text-gray-600 mb-4">Perpaduan gurihnya cireng dan lembutnya keju yang meleleh di mulut!</p>
+            <div class="flex justify-between items-center">
+              <span class="text-green-600 font-bold text-xl">Rp 2.500/pcs</span>
+              <a href="https://wa.me/6281380637870?text=Pesan%20Cireng%20Keju%20Lumer"
+                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center">
+                <i data-feather="shopping-cart" class="mr-2"></i>Pesan
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHATSAPP FLOAT BUTTON ===== -->
+  <a href="https://wa.me/6281380637870"
+     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-50">
+    <i data-feather="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    feather.replace();
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Fade-in animations
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Bubble animation
+    const bubbleContainer = document.getElementById('bubbles');
+    function createBubble() {
+      const bubble = document.createElement('div');
+      const size = Math.random() * 40 + 10;
+      bubble.classList.add('bubble');
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+      bubbleContainer.appendChild(bubble);
+      setTimeout(() => bubble.remove(), 12000);
+    }
+    setInterval(createBubble, 600);
+  </script>
 </body>
 </html>
