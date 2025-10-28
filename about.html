@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Cireng Emoy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-poppins bg-gray-50">
+    <custom-navbar></custom-navbar>
+    
+    <!-- About Hero -->
+    <section class="relative bg-gradient-to-r from-orange-500 to-amber-500 text-white py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Tentang Cireng Emoy</h1>
+            <p class="text-xl max-w-2xl mx-auto">Cerita dibalik kelezatan cireng yang bikin nagih</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/food/640x360/10" alt="Tentang Kami" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Sejarah Cireng Emoy</h2>
+                    <p class="text-gray-600 mb-4">Cireng Emoy mulai beroperasi sejak tahun 2018 dengan konsep cireng premium yang menggunakan bahan-bahan terbaik. Berawal dari hobi memasak, pemilik Cireng Emoy kemudian mengembangkan resep keluarga menjadi bisnis yang diminati banyak orang.</p>
+                    <p class="text-gray-600">Nama "Emoy" diambil dari panggilan akrab pemilik yang selalu membuat cireng dengan penuh cinta dan perhatian terhadap setiap detail rasa.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/food/640x360/11" alt="Bahan Berkualitas" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Bahan Berkualitas</h2>
+                    <p class="text-gray-600 mb-4">Kami hanya menggunakan bahan-bahan terbaik untuk cireng kami:</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center gap-2"><i data-feather="check" class="text-green-500"></i> Tepung tapioka pilihan</li>
+                        <li class="flex items-center gap-2"><i data-feather="check" class="text-green-500"></i> Bumbu racikan khusus</li>
+                        <li class="flex items-center gap-2"><i data-feather="check" class="text-green-500"></i> Keju impor kualitas premium</li>
+                        <li class="flex items-center gap-2"><i data-feather="check" class="text-green-500"></i> Minyak goreng fresh setiap hari</li>
+                        <li class="flex items-center gap-2"><i data-feather="check" class="text-green-500"></i> Cabai pilihan untuk varian pedas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">Visi & Misi</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="bg-orange-100 p-4 rounded-full inline-block mb-4">
+                            <i data-feather="eye" class="w-8 h-8 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Visi</h3>
+                        <p class="text-gray-600">Menjadi produsen cireng premium terbaik di Indonesia dengan cita rasa yang unik dan konsisten.</p>
+                    </div>
+                    <div>
+                        <div class="bg-orange-100 p-4 rounded-full inline-block mb-4">
+                            <i data-feather="target" class="w-8 h-8 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Misi</h3>
+                        <p class="text-gray-600">Menyajikan cireng dengan kualitas terbaik, higienis, dan harga terjangkau untuk semua kalangan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/6281234567890?text=Halo%20Cireng%20Emoy,%20saya%20mau%20pesan" class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 flex items-center justify-center">
+            <i data-feather="message-circle" class="w-6 h-6"></i>
+        </a>
+    </div>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
