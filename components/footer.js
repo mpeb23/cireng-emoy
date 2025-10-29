@@ -8,6 +8,12 @@ class CustomFooter extends HTMLElement {
                     background-color: #065F46;
                     color: white;
                     padding: 3rem 0;
+                    transition: box-shadow 0.3s ease;
+                }
+
+                /* Efek shadow muncul saat scroll */
+                :host(.scrolled) {
+                    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
                 }
                 
                 .footer-container {
@@ -18,24 +24,24 @@ class CustomFooter extends HTMLElement {
                     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                     gap: 2rem;
                 }
-                
+
                 .footer-logo {
                     font-size: 1.5rem;
                     font-weight: 700;
                     margin-bottom: 1rem;
                     color: #FBBF24;
                 }
-                
+
                 .footer-about {
                     margin-bottom: 1.5rem;
                     line-height: 1.6;
                 }
-                
+
                 .social-links {
                     display: flex;
                     gap: 1rem;
                 }
-                
+
                 .social-link {
                     display: inline-flex;
                     align-items: center;
@@ -47,45 +53,45 @@ class CustomFooter extends HTMLElement {
                     color: white;
                     transition: all 0.3s;
                 }
-                
+
                 .social-link:hover {
                     background-color: #FBBF24;
                     transform: translateY(-3px);
                 }
-                
+
                 .footer-heading {
                     font-size: 1.25rem;
                     font-weight: 600;
                     margin-bottom: 1.5rem;
                     color: #FBBF24;
                 }
-                
+
                 .footer-links {
                     list-style: none;
                     padding: 0;
                 }
-                
+
                 .footer-link {
                     margin-bottom: 0.75rem;
                 }
-                
+
                 .footer-link a {
                     color: white;
                     text-decoration: none;
                     transition: color 0.3s;
                 }
-                
+
                 .footer-link a:hover {
                     color: #FBBF24;
                 }
-                
+
                 .footer-bottom {
                     text-align: center;
                     padding-top: 2rem;
                     margin-top: 2rem;
                     border-top: 1px solid rgba(255, 255, 255, 0.1);
                 }
-                
+
                 @media (max-width: 768px) {
                     .footer-container {
                         grid-template-columns: 1fr;
@@ -131,9 +137,16 @@ class CustomFooter extends HTMLElement {
             </div>
         `;
         
-        // Replace feather icons after rendering
-        this.shadowRoot.querySelectorAll('[data-feather]').forEach(el => {
-            feather.replace();
+        // Ganti feather icons
+        feather.replace();
+
+        // Tambahkan efek shadow saat scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                this.classList.add('scrolled');
+            } else {
+                this.classList.remove('scrolled');
+            }
         });
     }
 }
