@@ -95,7 +95,7 @@ class MenuCard extends HTMLElement {
                     <span class="menu-price">Rp ${price}</span>
                 </div>
                 <p class="menu-description">${description}</p>
-                <a href="https://wa.me/6281234567890?text=Halo%20Cireng%20Emoy,%20saya%20ingin%20memesan%20${encodeURIComponent(title)}" class="menu-button" target="_blank">Pesan Sekarang</a>
+                <a href="https://wa.me/6281380637870?text=Halo%20Cireng%20Emoy,%20saya%20ingin%20memesan%20${encodeURIComponent(title)}" class="menu-button" target="_blank">Pesan Sekarang</a>
 </div>
         `;
     }
