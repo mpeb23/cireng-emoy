@@ -75,12 +75,3 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll(); // Run once on load
 });
 
-
-window.addEventListener("scroll", () => {
-    const menuSection = document.querySelector("#menu");
-    if (window.scrollY > 100) {
-        menuSection.classList.add("scrolled");
-    } else {
-        menuSection.classList.remove("scrolled");
-    }
-});
