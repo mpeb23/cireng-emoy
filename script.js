@@ -75,18 +75,3 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll(); // Run once on load
 });
 
-// Efek muncul saat di-scroll (Intersection Observer)
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  // Observasi semua elemen menu-card
-  document.querySelectorAll('.menu-card').forEach(card => {
-    observer.observe(card);
-  });
-});
