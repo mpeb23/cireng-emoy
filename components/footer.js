@@ -119,9 +119,9 @@ class CustomFooter extends HTMLElement {
                 <div class="footer-contact-col">
                     <h3 class="footer-heading">Kontak Kami</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><i data-feather="map-pin" class="mr-2"></i> Jl. Cihampelas No.123, Bandung</li>
-                        <li class="footer-link"><i data-feather="phone" class="mr-2"></i> +62 812-3456-7890</li>
-                        <li class="footer-link"><i data-feather="mail" class="mr-2"></i> hello@cirengemoy.com</li>
+                        <li class="footer-link"><i data-feather="map-pin" class="mr-2"></i> Perumahan Sadjati Garden City 3 Blok A No 21 Pangulah Utara</li>
+                        <li class="footer-link"><i data-feather="phone" class="mr-2"></i> +62 813-8063-7870</li>
+                        <li class="footer-link"><i data-feather="mail" class="mr-2"></i> pebrianaherak23@gmail.com</li>
                     </ul>
                 </div>
             </div>
