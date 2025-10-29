@@ -1,329 +1,209 @@
-/* Custom styles */
-body {
-    scroll-behavior: smooth;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Custom animation for hover effect */
-.hover-scale {
-    transition: transform 0.3s ease;
+html{
+    font-size: 62.5%; /* 1rem = 10px */
 }
 
-.hover-scale:hover {
-    transform: scale(1.03);
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    
 }
 
-/* Custom pulse animation */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.main-title{
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    text-shadow: 
+    1px 0px 1px #ccc, 0px 1px 1px #eee, 
+    2px 1px 1px #ccc, 1px 2px 1px #eee,
+    3px 2px 1px #ccc, 2px 3px 1px #eee,
+    4px 3px 1px #ccc, 3px 4px 1px #eee,
+    5px 4px 1px #ccc, 4px 5px 1px #eee,
+    6px 5px 1px #ccc, 5px 6px 1px #eee,
+    7px 6px 1px #ccc;
 }
 
-.pulse-animation {
-    animation: pulse 2s infinite;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-nav a {
-  transition: color 0.3s ease;
+.main-title h1{
+    font-size: 7rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #555;
 }
 
-#navbar.bg-white a:hover {
-  color: #f97316; /* oranye */
-}
-/* ===============================
-   Global Style
-================================== */
-html {
-  scroll-behavior: smooth;
+.main-title h2{
+    font-size: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #1f2937;
-  background-color: #f9fafb;
+.svg-img{
+   display: block;
+   margin: auto;
 }
 
-/* Animasi masuk saat scroll */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+svg{
+    display: block;
+   margin: auto;
+}
+
+#clock{
+    animation: clockHand 5s infinite linear;
+    
+    
+    transform-box: fill-box;
+    transform-origin: bottom;
+}
+
+#leftTree, #righTree{
+    animation: tree 2s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: bottom;
+}
+
+#man{
+    animation: manBody 1s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: bottom;
+}
+
+#pc-circle{
+    fill: #6ace66;
+    stroke-width: 4;
+    animation: change-light 4s linear infinite alternate;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #f5f5f5;
+    font-size: 1.3rem;
+}
+
+@keyframes clockHand{
+    from{
+        transform: rotateZ(0deg);
+    }
+    from{
+        transform: rotateZ(-360deg);
+    }
+}
+
+@keyframes manBody{
+    from{
+        transform: rotateX(0deg);
+    }
+    to{
+        transform: rotateX(10deg);
+    }
+}
+
+@keyframes tree{
+    from{
+        transform: rotateZ(10deg);
+    }
+    to{
+        transform: rotateZ(-20deg);
+    }
+}
+
+@keyframes change-light {
+    0% {
+        stroke: #cd61f8;
+      }
+      25% {
+        stroke: #6ace66;
+      }
+      75% {
+        stroke: #2995c0;
+      }
+      100% {
+        stroke: #e92949;
+      }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-section {
-  animation: fadeUp 0.8s ease both;
-}
+  /* Media Queries */
 
-/* ===============================
-   Navbar Style
-================================== */
-#navbar {
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-  backdrop-filter: blur(8px);
-}
+  @media (min-width: 640px){
+    .main-title h1{
+        font-size: 5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #555;
+    }
+    
+    .main-title h2{
+        font-size: 3rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    
+     
+    }
+     
+    @media (min-width: 768px){
+        .main-title h1{
+            font-size: 6rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #555;
+        }
+        
+        .main-title h2{
+            font-size: 4rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    
+     
+    }
+     
+    @media (min-width: 1024px){
+     
+        .main-title h1{
+            font-size: 7rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #555;
+        }
+        
+        .main-title h2{
+            font-size: 5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+     
+    }
+     
+    @media (min-width: 1200px){
+     
+        .main-title h1{
+            font-size: 8rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #555;
+        }
+        
+        .main-title h2{
+            font-size: 5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
 
-#navbar.bg-white {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-nav a {
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-nav a:hover {
-  color: #f97316;
-  transform: translateY(-2px);
-}
-
-/* ===============================
-   Hero Section
-================================== */
-section.relative {
-  position: relative;
-  overflow: hidden;
-}
-
-section.relative::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 70%);
-  animation: pulseGlow 5s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% { opacity: 0.2; transform: scale(1); }
-  100% { opacity: 0.4; transform: scale(1.2); }
-}
-
-/* ===============================
-   Product Cards
-================================== */
-.bg-white.rounded-xl {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bg-white.rounded-xl:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(249, 115, 22, 0.15);
-}
-
-.bg-white.rounded-xl img {
-  transition: transform 0.4s ease;
-}
-
-.bg-white.rounded-xl:hover img {
-  transform: scale(1.05);
-}
-
-/* Tombol pesanan */
-button.bg-green-500 {
-  position: relative;
-  overflow: hidden;
-}
-
-button.bg-green-500::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.2);
-  transition: left 0.3s ease;
-}
-
-button.bg-green-500:hover::after {
-  left: 0;
-}
-
-/* ===============================
-   Testimonial Cards
-================================== */
-.bg-white.p-6.rounded-xl.shadow-md {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bg-white.p-6.rounded-xl.shadow-md:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* ===============================
-   CTA Section
-================================== */
-.bg-gradient-to-r {
-  background-size: 200% auto;
-  transition: background-position 1s ease;
-}
-
-.bg-gradient-to-r:hover {
-  background-position: right center;
-}
-
-/* Tombol CTA */
-.bg-green-500,
-.bg-white.text-orange-600 {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bg-green-500:hover,
-.bg-white.text-orange-600:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* ===============================
-   Floating WhatsApp Button
-================================== */
-.fixed.bottom-6.right-6 a {
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* Hover glow untuk tombol WhatsApp */
-.fixed.bottom-6.right-6 a:hover {
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-}
-
-/* ===============================
-   Scrollbar Custom (optional)
-================================== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #f97316;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: #f3f4f6;
-}
-/* ===============================
-   Scroll Reveal Animation
-================================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* ===============================
-   SCROLL REVEAL
-================================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Tambahan untuk efek berurutan (staggered) */
-.reveal.delay-1 { transition-delay: 0.1s; }
-.reveal.delay-2 { transition-delay: 0.2s; }
-.reveal.delay-3 { transition-delay: 0.3s; }
-.reveal.delay-4 { transition-delay: 0.4s; }
-
-/* ===============================
-   GRADIENT MOVEMENT (Hero + CTA)
-================================== */
-.bg-gradient-to-r {
-  background-size: 200% auto;
-  animation: gradientFlow 6s ease-in-out infinite;
-}
-
-@keyframes gradientFlow {
-  0% { background-position: left center; }
-  50% { background-position: right center; }
-  100% { background-position: left center; }
-}
-
-/* ===============================
-   PRODUCT & TESTIMONIAL CARD EFFECTS
-================================== */
-.bg-white.rounded-xl {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.bg-white.rounded-xl:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 20px 30px rgba(249, 115, 22, 0.2);
-}
-.bg-white.rounded-xl img {
-  transition: transform 0.6s ease;
-}
-.bg-white.rounded-xl:hover img {
-  transform: scale(1.05);
-}
-
-/* ===============================
-   BUTTON EFFECTS
-================================== */
-a, button {
-  transition: all 0.3s ease-in-out;
-}
-a:hover, button:hover {
-  transform: translateY(-2px);
-}
-.bg-green-500:hover {
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
-}
-.bg-white.text-orange-600:hover {
-  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
-}
-
-/* ===============================
-   FLOATING WHATSAPP BUTTON EFFECT
-================================== */
-.fixed.bottom-6.right-6 a {
-  position: relative;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* Pulse glow effect */
-.fixed.bottom-6.right-6 a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-  70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-/* ===============================
-   SMOOTH SCROLL
-================================== */
-html {
-  scroll-behavior: smooth;
-}
+        .main-title{
+            text-align: center;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+     
+    }
