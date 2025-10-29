@@ -68,56 +68,76 @@
         </div>
     </section>
 
-    <!-- Menu andalan -->
-    <!-- Menu Section -->
-    <section id="menu" class="py-20 bg-green-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-green-800 mb-16">Menu Andalan Kami</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/1" 
-                    title="Cireng Ayam Pedas" 
-                    price="15k" 
-                    description="Cireng dengan isian ayam pedas nikmat, level pedas bisa disesuaikan">
-                </custom-menu-card>
-                
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/2" 
-                    title="Cireng Keju Mozarella" 
-                    price="18k" 
-                    description="Keju mozarella lumer dengan taburan bubuk keju yang gurih">
-                </custom-menu-card>
-                
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/3" 
-                    title="Cireng Sosis BBQ" 
-                    price="16k" 
-                    description="Perpaduan sosis premium dengan saus BBQ spesial">
-                </custom-menu-card>
-                
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/4" 
-                    title="Cireng Original" 
-                    price="12k" 
-                    description="Cireng original dengan bumbu rahasia, crispy di luar lembut di dalam">
-                </custom-menu-card>
-                
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/6" 
-                    title="Cireng Bakso Pedas" 
-                    price="17k" 
-                    description="Isian bakso sapi dengan saus pedas manis yang menggugah selera">
-                </custom-menu-card>
-                
-                <custom-menu-card 
-                    image="http://static.photos/food/640x360/7" 
-                    title="Cireng Komplit" 
-                    price="25k" 
-                    description="Paket komplit semua varian isi dalam satu box, bisa request sesuai selera">
-                </custom-menu-card>
+   <!-- Menu andalan -->
+    <section id="menu" class="py-20 bg-green-100 transition-all duration-500">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-green-800 mb-4">Menu Andalan Kami</h2>
+            <p class="text-green-700 max-w-2xl mx-auto mb-12">
+                Pilihan cireng terbaik dengan berbagai varian rasa. Dibuat dari bahan premium, 
+                digoreng dengan minyak segar, dan disajikan dengan cinta 💚
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/1" alt="Cireng Ayam Pedas" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Ayam Pedas</h3>
+                        <p class="menu-desc">Cireng dengan isian ayam pedas nikmat, level pedas bisa disesuaikan</p>
+                        <span class="menu-price">15k</span>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/2" alt="Cireng Keju Mozarella" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Keju Mozarella</h3>
+                        <p class="menu-desc">Keju mozarella lumer dengan taburan bubuk keju yang gurih</p>
+                        <span class="menu-price">18k</span>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/3" alt="Cireng Sosis BBQ" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Sosis BBQ</h3>
+                        <p class="menu-desc">Perpaduan sosis premium dengan saus BBQ spesial</p>
+                        <span class="menu-price">16k</span>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/4" alt="Cireng Original" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Original</h3>
+                        <p class="menu-desc">Cireng original dengan bumbu rahasia, crispy di luar lembut di dalam</p>
+                        <span class="menu-price">12k</span>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/6" alt="Cireng Bakso Pedas" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Bakso Pedas</h3>
+                        <p class="menu-desc">Isian bakso sapi dengan saus pedas manis yang menggugah selera</p>
+                        <span class="menu-price">17k</span>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="http://static.photos/food/640x360/7" alt="Cireng Komplit" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Cireng Komplit</h3>
+                        <p class="menu-desc">Paket komplit semua varian isi dalam satu box, bisa request sesuai selera</p>
+                        <span class="menu-price">25k</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <script src="assets/js/menu.js" defer></script>
+</body>
+</html>
     <!-- Testimonials Section -->
     <section class="py-20 bg-cream-50">
         <div class="container mx-auto px-6">
