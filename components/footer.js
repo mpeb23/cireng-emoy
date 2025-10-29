@@ -109,7 +109,7 @@ class CustomFooter extends HTMLElement {
                 <div class="footer-links-col">
                     <h3 class="footer-heading">Tautan Cepat</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="https://mpeb23.github.io/cireng-emoy/">Beranda</a></li>
+                        <li class="footer-link"><a href="#">Beranda</a></li>
                         <li class="footer-link"><a href="#about">Tentang Kami</a></li>
                         <li class="footer-link"><a href="#menu">Menu</a></li>
                         <li class="footer-link"><a href="#contact">Kontak</a></li>
