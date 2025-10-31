@@ -1,8 +1,8 @@
 // Data Produk (Tambahkan produk cireng Anda di sini) - Ganti gambar dengan yang asli jika perlu
 const products = [
-    { id: 1, name: 'Cireng Original', price: 15000, image: 'https://via.placeholder.com/300x250?text=Cireng+Original', description: 'Cireng klasik dengan rasa gurih.' }, // Placeholder gambar
-    { id: 2, name: 'Cireng Pedas', price: 18000, image: 'https://via.placeholder.com/300x250?text=Cireng+Pedas', description: 'Cireng dengan level pedas tinggi.' },
-    { id: 3, name: 'Cireng Isi Ayam', price: 20000, image: 'https://via.placeholder.com/300x250?text=Cireng+Isi+Ayam', description: 'Cireng isi ayam suwir.' },
+    { id: 1, name: 'Cireng Original', price: 15000, image: 'cirenbg.png', description: 'Cireng klasik dengan rasa gurih.' }, // Placeholder gambar
+    { id: 2, name: 'Cireng Pedas', price: 18000, image: 'cirenbg.png', description: 'Cireng dengan level pedas tinggi.' },
+    { id: 3, name: 'Cireng Isi Ayam', price: 20000, image: 'cirenbg.png', description: 'Cireng isi ayam suwir.' },
 ];
 
 let cart = [];
