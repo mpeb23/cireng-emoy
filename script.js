@@ -153,3 +153,5 @@ function viewDetails(id) {
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts(); // Pastikan dipanggil
 });
+
+

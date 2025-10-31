@@ -100,3 +100,38 @@ body {
         padding: 0.5rem;
     }
 }
+
+/* Style dasar navbar */
+.navbar {
+  background: linear-gradient(90deg, #007bff, #00bcd4);
+  transition: all 0.3s ease;
+}
+
+/* Efek hover animasi pada menu */
+.nav-anim {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-anim::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+.nav-anim:hover::after {
+  width: 100%;
+}
+.nav-anim:hover {
+  color: #ffeb3b !important;
+}
+
+/* Efek navbar saat di-scroll */
+.navbar.scrolled {
+  background: linear-gradient(90deg, #0056b3, #0097a7);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
