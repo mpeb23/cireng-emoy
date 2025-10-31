@@ -1,0 +1,102 @@
+/* Custom Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.hero {
+    background-image: url('https://source.unsplash.com/featured/?food,cireng'); /* Ganti dengan gambar cireng Anda */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 50vh; /* Tinggi minimum responsif */
+    display: flex;
+    align-items: center;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Tinggi tetap untuk konsistensi */
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparan */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-card.active .product-overlay {
+    opacity: 1; /* Untuk mobile klik */
+}
+
+.btn-primary {
+    background-color: #ff6b6b;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #ff5252;
+}
+
+.btn-success {
+    background-color: #25d366; /* Warna WhatsApp */
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #128c7e;
+}
+
+/* Media Queries untuk Responsivitas Tambahan */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem; /* Font lebih kecil di mobile */
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .product-card img {
+        height: 200px; /* Tinggi lebih kecil di mobile */
+    }
+    .product-overlay {
+        padding: 0.5rem;
+    }
+}
